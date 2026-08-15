@@ -13,10 +13,17 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-      - run: npm i   # Use npm i (generates lock file automatically)
-      - run: npm run build
-      - run: touch out/.nojekyll
-      - uses: peaceiris/actions-gh-pages@v3
+          cache: 'npm'
+      - name: Clean npm cache
+        run: npm cache clean --force
+      - name: Install dependencies (ignore lockfile)
+        run: npm install --no-package-lock
+      - name: Build
+        run: npm run build
+      - name: Add .nojekyll
+        run: touch out/.nojekyll
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out
