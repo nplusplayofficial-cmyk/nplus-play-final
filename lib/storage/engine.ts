@@ -21,10 +21,6 @@ export const setCurrentUser = (username: string) => {
   localStorage.setItem('nplus_current_user', username);
 };
 
-export const logoutUser = () => {
-  localStorage.removeItem('nplus_current_user');
-};
-
 export const getUserData = (username: string): UserData | null => {
   if (typeof window === 'undefined') return null;
   const data = localStorage.getItem(`nplus_user_${username}`);
@@ -70,10 +66,4 @@ export const settleBetLocal = (username: string, game: string, amount: number, r
   });
   saveUserData(username, user);
   return { newBalance: user.balance };
-};
-
-export const getBetHistory = (username: string): any[] => {
-  const user = getUserData(username);
-  if (!user) return [];
-  return user.bets;
 };
