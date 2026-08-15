@@ -94,7 +94,6 @@ export default function WingoBoard() {
 
   return (
     <div className="max-w-4xl mx-auto p-2 text-white pb-20">
-      {/* Balance & Timer */}
       <div className="flex justify-between items-center mb-4 bg-[#0f172a] p-3 rounded-xl border border-[#2a2a3a]">
         <div>
           <p className="text-xs text-gray-400">Wallet Balance</p>
@@ -109,7 +108,6 @@ export default function WingoBoard() {
         </div>
       </div>
 
-      {/* Number Grid */}
       <div className="mb-4 bg-[#0f172a] p-3 rounded-xl border border-[#2a2a3a]">
         <div className="grid grid-cols-10 gap-1">
           {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => {
@@ -133,7 +131,6 @@ export default function WingoBoard() {
         </div>
       </div>
 
-      {/* Color & Big/Small */}
       <div className="grid grid-cols-5 gap-2 mb-4">
         {['Red', 'Green', 'Violet'].map((color) => (
           <button
@@ -159,7 +156,6 @@ export default function WingoBoard() {
         </button>
       </div>
 
-      {/* Bet Slip */}
       <div className="bg-[#0f172a] p-4 rounded-xl border border-[#2a2a3a] mb-4">
         <p className="text-sm font-bold mb-3">WinGo 30sec</p>
         <div className="flex items-center gap-3 mb-3">
